@@ -93,6 +93,7 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
             guard let musicColletcion = sender as? [MusicCollection] else { return }
             
             playlistAndArtist.musicConlletcion = musicColletcion
+            playlistAndArtist.musicService = musicService
         }
     }
     
