@@ -63,7 +63,6 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
-    // MARK: - Navigation
 }
 
 extension FavoritesViewController: favTableViewCellDelegate {

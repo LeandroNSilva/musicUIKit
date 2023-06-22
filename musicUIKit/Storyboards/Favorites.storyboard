@@ -24,7 +24,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="77" y="4"/>
+            <point key="canvasLocation" x="-613" y="-53"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="uzd-u9-ekP">
@@ -164,10 +164,10 @@
             </objects>
             <point key="canvasLocation" x="855.72519083969462" y="3.5211267605633805"/>
         </scene>
-        <!--View Controller-->
+        <!--Playing View Controller-->
         <scene sceneID="l8b-zy-v7a">
             <objects>
-                <viewController id="xH3-LB-eTM" sceneMemberID="viewController">
+                <viewController id="xH3-LB-eTM" customClass="PlayingViewController" customModule="musicUIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dez-8Q-fZV">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -203,20 +203,52 @@
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYe-tB-AcV">
                                         <rect key="frame" x="294.66666666666669" y="0.0" width="50.666666666666686" height="56"/>
-                                        <color key="tintColor" name="SystemPink"/>
+                                        <color key="tintColor" name="SystemGray"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="heart.fill" catalog="system" title=""/>
+                                        <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system" title=""/>
                                     </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="TYe-tB-AcV" secondAttribute="trailing" constant="28" id="ZRh-zy-D2Z"/>
                                 </constraints>
                             </stackView>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="leading" contentVerticalAlignment="center" value="-3.5" minValue="-4.5" maxValue="4.5" minimumValueImage="speaker.fill" catalog="system" maximumValueImage="speaker.wave.3.fill" translatesAutoresizingMaskIntoConstraints="NO" id="Qe0-Es-McT">
-                                <rect key="frame" x="22" y="721" width="365" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" name="SystemGray"/>
-                            </slider>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="c4m-V6-bpf">
+                                <rect key="frame" x="66" y="649" width="260" height="47.333333333333371"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFy-un-OZR">
+                                        <rect key="frame" x="0.0" y="0.0" width="77.333333333333329" height="47.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="backward.fill" catalog="system" title="">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font">
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                            </preferredSymbolConfiguration>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWN-RE-9Ro">
+                                        <rect key="frame" x="102.33333333333336" y="0.0" width="55.666666666666671" height="47.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="">
+                                            <imageReference key="image" image="play.fill" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font">
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                            </preferredSymbolConfiguration>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNS-AM-aWv">
+                                        <rect key="frame" x="183" y="0.0" width="77" height="47.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="">
+                                            <imageReference key="image" image="forward.fill" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font">
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                            </preferredSymbolConfiguration>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="joi-ol-FWb">
                                 <rect key="frame" x="70" y="170" width="250" height="250"/>
                                 <constraints>
@@ -253,53 +285,33 @@
                                     <constraint firstItem="jT6-Lu-IOE" firstAttribute="top" secondItem="vuq-xz-nxm" secondAttribute="bottom" constant="45" id="Bqm-fN-Msn"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFy-un-OZR">
-                                <rect key="frame" x="66" y="649" width="77" height="55"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="backward.fill" catalog="system" title="">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font">
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                    </preferredSymbolConfiguration>
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWN-RE-9Ro">
-                                <rect key="frame" x="169" y="649" width="55.666666666666657" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="">
-                                    <imageReference key="image" image="play.fill" catalog="system" symbolScale="large"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font">
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                    </preferredSymbolConfiguration>
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNS-AM-aWv">
-                                <rect key="frame" x="249" y="649" width="77" height="55"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="">
-                                    <imageReference key="image" image="forward.fill" catalog="system" symbolScale="large"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font">
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                    </preferredSymbolConfiguration>
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="leading" contentVerticalAlignment="center" value="-3.5" minValue="-4.5" maxValue="4.5" minimumValueImage="speaker.fill" catalog="system" maximumValueImage="speaker.wave.3.fill" translatesAutoresizingMaskIntoConstraints="NO" id="Qe0-Es-McT">
+                                <rect key="frame" x="28" y="748" width="337" height="31"/>
+                                <color key="tintColor" name="SystemGray"/>
+                            </slider>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="s03-Ws-hGk"/>
                         <color key="backgroundColor" name="SystemGray07"/>
                         <constraints>
-                            <constraint firstItem="qFy-un-OZR" firstAttribute="leading" secondItem="s03-Ws-hGk" secondAttribute="leading" constant="66" id="2eH-VS-u1v"/>
+                            <constraint firstItem="c4m-V6-bpf" firstAttribute="leading" secondItem="s03-Ws-hGk" secondAttribute="leading" constant="66" id="19O-Po-Fq9"/>
+                            <constraint firstItem="s03-Ws-hGk" firstAttribute="trailing" secondItem="c4m-V6-bpf" secondAttribute="trailing" constant="67" id="2uD-WK-NFQ"/>
                             <constraint firstItem="s03-Ws-hGk" firstAttribute="trailing" secondItem="U9k-0w-uR1" secondAttribute="trailing" constant="32" id="4eJ-rJ-UW7"/>
+                            <constraint firstItem="c4m-V6-bpf" firstAttribute="top" secondItem="U9k-0w-uR1" secondAttribute="bottom" constant="25" id="9vr-lK-trt"/>
+                            <constraint firstItem="s03-Ws-hGk" firstAttribute="trailing" secondItem="Qe0-Es-McT" secondAttribute="trailing" constant="30" id="E31-MT-9KD"/>
                             <constraint firstItem="U9k-0w-uR1" firstAttribute="leading" secondItem="s03-Ws-hGk" secondAttribute="leading" constant="32" id="MUl-Mn-Lyg"/>
                             <constraint firstItem="yM1-Su-kRM" firstAttribute="leading" secondItem="s03-Ws-hGk" secondAttribute="leading" constant="167" id="OYC-gq-pKR"/>
-                            <constraint firstItem="qFy-un-OZR" firstAttribute="top" secondItem="U9k-0w-uR1" secondAttribute="bottom" constant="45" id="ath-K2-KUO"/>
-                            <constraint firstItem="s03-Ws-hGk" firstAttribute="trailing" secondItem="jNS-AM-aWv" secondAttribute="trailing" constant="67" id="pM4-89-oh6"/>
+                            <constraint firstItem="s03-Ws-hGk" firstAttribute="bottom" secondItem="Qe0-Es-McT" secondAttribute="bottom" constant="40" id="omB-3O-Sid"/>
                             <constraint firstItem="joi-ol-FWb" firstAttribute="leading" secondItem="s03-Ws-hGk" secondAttribute="leading" constant="70" id="tpE-LP-LBk"/>
                             <constraint firstItem="U9k-0w-uR1" firstAttribute="top" secondItem="wwZ-5z-6zH" secondAttribute="bottom" constant="25" id="vBg-l5-Hi6"/>
+                            <constraint firstItem="Qe0-Es-McT" firstAttribute="leading" secondItem="s03-Ws-hGk" secondAttribute="leading" constant="30" id="yi6-vS-1Cd"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="artistName" destination="Xf3-XK-Vt5" id="XsH-ZS-BZv"/>
+                        <outlet property="favoriteButton" destination="TYe-tB-AcV" id="3jv-ap-m5N"/>
+                        <outlet property="songCover" destination="joi-ol-FWb" id="Hik-kM-gDq"/>
+                        <outlet property="songTitle" destination="r9e-3P-1gg" id="FXu-Rq-y4n"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UUa-B3-s1A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -310,6 +322,7 @@
         <image name="00Mb3DuaIH1kjrwOku9CGU" width="640" height="640"/>
         <image name="backward.fill" catalog="system" width="128" height="77"/>
         <image name="forward.fill" catalog="system" width="128" height="77"/>
+        <image name="heart" catalog="system" width="128" height="107"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="heart.slash" catalog="system" width="128" height="115"/>
         <image name="play.fill" catalog="system" width="117" height="128"/>
