@@ -17,8 +17,10 @@
 		3129E9D12A40DC4E00CC58FF /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 3129E9CC2A40DC4E00CC58FF /* data.json */; };
 		3129E9D22A40DC4E00CC58FF /* data-with-images.json in Resources */ = {isa = PBXBuildFile; fileRef = 3129E9CD2A40DC4E00CC58FF /* data-with-images.json */; };
 		3129E9D32A40DC4E00CC58FF /* MusicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3129E9CF2A40DC4E00CC58FF /* MusicService.swift */; };
-		D812D4522A40E65F006E4092 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D812D4512A40E65F006E4092 /* LibraryViewController.swift */; };
-		D812D4542A40E66C006E4092 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D812D4532A40E66C006E4092 /* FavoritesViewController.swift */; };
+		D80687542A44933800C98138 /* FavTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80687532A44933800C98138 /* FavTableViewCell.swift */; };
+		D80687562A4493D000C98138 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80687552A4493D000C98138 /* FavoritesViewController.swift */; };
+		D806875A2A44A8D700C98138 /* EmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80687592A44A8D700C98138 /* EmptyTableViewCell.swift */; };
+		D812D4522A40E65F006E4092 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D812D4512A40E65F006E4092 /* FavoritesTableViewController.swift */; };
 		D812D4562A40E675006E4092 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D812D4552A40E675006E4092 /* SearchViewController.swift */; };
 		D812D4582A40E781006E4092 /* Library.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D812D4572A40E781006E4092 /* Library.storyboard */; };
 		D83B96A22A420DFC00BF327B /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D83B96A12A420DFC00BF327B /* Favorites.storyboard */; };
@@ -37,8 +39,10 @@
 		3129E9CC2A40DC4E00CC58FF /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		3129E9CD2A40DC4E00CC58FF /* data-with-images.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "data-with-images.json"; sourceTree = "<group>"; };
 		3129E9CF2A40DC4E00CC58FF /* MusicService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicService.swift; sourceTree = "<group>"; };
-		D812D4512A40E65F006E4092 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
-		D812D4532A40E66C006E4092 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		D80687532A44933800C98138 /* FavTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavTableViewCell.swift; sourceTree = "<group>"; };
+		D80687552A4493D000C98138 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		D80687592A44A8D700C98138 /* EmptyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTableViewCell.swift; sourceTree = "<group>"; };
+		D812D4512A40E65F006E4092 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		D812D4552A40E675006E4092 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		D812D4572A40E781006E4092 /* Library.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Library.storyboard; sourceTree = "<group>"; };
 		D83B96A12A420DFC00BF327B /* Favorites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favorites.storyboard; sourceTree = "<group>"; };
@@ -79,15 +83,15 @@
 				3129E9B62A40D7A500CC58FF /* AppDelegate.swift */,
 				3129E9B82A40D7A500CC58FF /* SceneDelegate.swift */,
 				3129E9BA2A40D7A500CC58FF /* ViewController.swift */,
-				D812D4512A40E65F006E4092 /* LibraryViewController.swift */,
-				D812D4532A40E66C006E4092 /* FavoritesViewController.swift */,
+				D812D4512A40E65F006E4092 /* FavoritesTableViewController.swift */,
 				D812D4552A40E675006E4092 /* SearchViewController.swift */,
 				3129E9BC2A40D7A500CC58FF /* Main.storyboard */,
-				D83B96A12A420DFC00BF327B /* Favorites.storyboard */,
 				D812D4572A40E781006E4092 /* Library.storyboard */,
 				3129E9C12A40D7A600CC58FF /* LaunchScreen.storyboard */,
 				3129E9BF2A40D7A600CC58FF /* Assets.xcassets */,
 				3129E9C42A40D7A600CC58FF /* Info.plist */,
+				D8DFB42C2A43D8270073019D /* ViewControllers */,
+				D8DFB42B2A43D8060073019D /* Storyboards */,
 			);
 			path = musicUIKit;
 			sourceTree = "<group>";
@@ -108,6 +112,24 @@
 				3129E9CF2A40DC4E00CC58FF /* MusicService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		D8DFB42B2A43D8060073019D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D83B96A12A420DFC00BF327B /* Favorites.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		D8DFB42C2A43D8270073019D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D80687532A44933800C98138 /* FavTableViewCell.swift */,
+				D80687552A4493D000C98138 /* FavoritesViewController.swift */,
+				D80687592A44A8D700C98138 /* EmptyTableViewCell.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,11 +209,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3129E9BB2A40D7A500CC58FF /* ViewController.swift in Sources */,
+				D80687542A44933800C98138 /* FavTableViewCell.swift in Sources */,
+				D806875A2A44A8D700C98138 /* EmptyTableViewCell.swift in Sources */,
+				D80687562A4493D000C98138 /* FavoritesViewController.swift in Sources */,
 				D812D4562A40E675006E4092 /* SearchViewController.swift in Sources */,
-				D812D4522A40E65F006E4092 /* LibraryViewController.swift in Sources */,
+				D812D4522A40E65F006E4092 /* FavoritesTableViewController.swift in Sources */,
 				3129E9B72A40D7A500CC58FF /* AppDelegate.swift in Sources */,
 				3129E9B92A40D7A500CC58FF /* SceneDelegate.swift in Sources */,
-				D812D4542A40E66C006E4092 /* FavoritesViewController.swift in Sources */,
 				3129E9D32A40DC4E00CC58FF /* MusicService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

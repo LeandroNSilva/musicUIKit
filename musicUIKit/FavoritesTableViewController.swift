@@ -1,5 +1,5 @@
 //
-//  FavoritesViewController.swift
+//  LibraryViewController.swift
 //  musicUIKit
 //
 //  Created by Natalia Dal Pizzol on 19/06/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavoritesViewController: UIViewController {
+class FavoritesTableViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

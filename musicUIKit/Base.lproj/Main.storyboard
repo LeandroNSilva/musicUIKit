@@ -13,7 +13,7 @@
         <!--Item-->
         <scene sceneID="LsR-A1-lbw">
             <objects>
-                <viewController id="wrf-GT-XVF" customClass="LibraryViewController" customModule="musicUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wrf-GT-XVF" customClass="FavoritesTableViewController" customModule="musicUIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GZz-6D-WWd">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,7 +90,7 @@
         <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <namedColor name="SystemGray">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
