@@ -10,21 +10,43 @@ import UIKit
 class PlayingViewController: UIViewController {
     
     
+    
+    
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var songCover: UIImageView!
     @IBOutlet weak var songTitle: UILabel!
     @IBOutlet weak var artistName: UILabel!
     
+    
     var music: Music?
     var favorites: [Music]  = MusicService.sharedMusicService.favoriteMusics
-    var fav: Bool = true
-    
+    weak var delegate: UpdateFavoriteSongsDelegate?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        songCover.image = UIImage(named: music?.id)
+        guard let music = music else { return }
+        songCover.image = UIImage(named: music.id)
+        songTitle.text = music.title
+        artistName.text = music.artist
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        delegate?.updateFavorites()
+    }
+    
+    func updateButton() {
+        if music!.isFavorite() {
+            favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        } else {
+            favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
+    }
+    
+    
+}
 
-
-
+protocol UpdateFavoriteSongsDelegate: AnyObject {
+    func updateFavorites()
+    
 }

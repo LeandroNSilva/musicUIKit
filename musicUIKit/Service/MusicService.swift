@@ -20,6 +20,10 @@ struct Music: Hashable, Decodable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
+    
+    func isFavorite() -> Bool {
+        return MusicService.sharedMusicService.favoriteMusics.contains(self) // map( { $0.id.contains(id) } )
+    }
 }
 
 // MARK: - MusicCollectionType

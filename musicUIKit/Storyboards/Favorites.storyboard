@@ -29,7 +29,7 @@
         <!--Favorites-->
         <scene sceneID="uzd-u9-ekP">
             <objects>
-                <viewController id="aqE-IM-ncA" customClass="FavListTableViewController" customModule="musicUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aqE-IM-ncA" customClass="FavoritesViewController" customModule="musicUIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GXq-wg-oi0">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -54,7 +54,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="separatorColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="favoritedSongCell" rowHeight="47" id="AWY-5t-lcv" customClass="SongTableViewCell" customModule="musicUIKit" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FavoriteMusicCell" rowHeight="47" id="AWY-5t-lcv" customClass="FavTableViewCell" customModule="musicUIKit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="353" height="47"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AWY-5t-lcv" id="beH-Uw-Xmy" customClass="SongTableViewCell" customModule="musicUIKit" customModuleProvider="target">
@@ -86,6 +86,9 @@
                                                     <color key="tintColor" name="SystemPink"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="heart.fill" catalog="system" title=""/>
+                                                    <connections>
+                                                        <action selector="favoriteButton:" destination="AWY-5t-lcv" eventType="touchUpInside" id="vbD-6U-Y9F"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -98,6 +101,12 @@
                                                 <constraint firstItem="acK-fo-W8U" firstAttribute="leading" secondItem="9Mc-se-0Dw" secondAttribute="trailing" constant="16" id="eI7-vY-GZ8"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="favoriteArtist" destination="Pg8-3K-Maj" id="Py3-J2-MYY"/>
+                                            <outlet property="favoriteButton" destination="UFh-wQ-6s2" id="6lA-2T-E7S"/>
+                                            <outlet property="favoriteImage" destination="9Mc-se-0Dw" id="mb5-jq-ViV"/>
+                                            <outlet property="favoriteTitle" destination="acK-fo-W8U" id="hPz-ZG-upL"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EmptyFavoriteCell" rowHeight="268" id="tjv-98-duW" customClass="EmptyTableViewCell" customModule="musicUIKit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="97" width="353" height="268"/>
@@ -143,7 +152,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="emptyImage" destination="eaN-Qp-6Zr" id="1fg-cn-y6c"/>
-                                            <outlet property="emptyMessage" destination="Z3K-0F-zOc" id="2Dd-p4-JAx"/>
                                             <outlet property="emptySub" destination="Z3K-0F-zOc" id="Knp-H5-fXx"/>
                                             <outlet property="emptyTitle" destination="psN-2W-9n8" id="rJd-Bg-NBp"/>
                                         </connections>
@@ -158,6 +166,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="u1z-R0-9VU" id="cJu-wH-msD"/>
+                        <segue destination="xH3-LB-eTM" kind="presentation" identifier="goToPlaying" id="D3j-TN-igG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hIg-xo-fv6" sceneMemberID="firstResponder"/>
@@ -169,16 +178,10 @@
             <objects>
                 <viewController id="xH3-LB-eTM" customClass="PlayingViewController" customModule="musicUIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dez-8Q-fZV">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Playing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yM1-Su-kRM">
-                                <rect key="frame" x="167" y="79" width="58.333333333333343" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="191" translatesAutoresizingMaskIntoConstraints="NO" id="wwZ-5z-6zH">
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="191" translatesAutoresizingMaskIntoConstraints="NO" id="wwZ-5z-6zH">
                                 <rect key="frame" x="32" y="519" width="345.33333333333331" height="56"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oc7-OP-2J4">
@@ -197,9 +200,6 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="Xf3-XK-Vt5" firstAttribute="leading" secondItem="oc7-OP-2J4" secondAttribute="leading" constant="32" id="1kP-QA-faS"/>
-                                        </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYe-tB-AcV">
                                         <rect key="frame" x="294.66666666666669" y="0.0" width="50.666666666666686" height="56"/>
@@ -208,9 +208,6 @@
                                         <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system" title=""/>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="TYe-tB-AcV" secondAttribute="trailing" constant="28" id="ZRh-zy-D2Z"/>
-                                </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="c4m-V6-bpf">
                                 <rect key="frame" x="66" y="649" width="260" height="47.333333333333371"/>
@@ -250,7 +247,7 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="joi-ol-FWb">
-                                <rect key="frame" x="70" y="170" width="250" height="250"/>
+                                <rect key="frame" x="70" y="170" width="253" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="DWV-9T-qdO"/>
                                 </constraints>
@@ -286,9 +283,15 @@
                                 </constraints>
                             </stackView>
                             <slider opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="leading" contentVerticalAlignment="center" value="-3.5" minValue="-4.5" maxValue="4.5" minimumValueImage="speaker.fill" catalog="system" maximumValueImage="speaker.wave.3.fill" translatesAutoresizingMaskIntoConstraints="NO" id="Qe0-Es-McT">
-                                <rect key="frame" x="28" y="748" width="337" height="31"/>
+                                <rect key="frame" x="28" y="772" width="337" height="31"/>
                                 <color key="tintColor" name="SystemGray"/>
                             </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yM1-Su-kRM">
+                                <rect key="frame" x="167" y="60.000000000000007" width="59" height="20.333333333333336"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="s03-Ws-hGk"/>
                         <color key="backgroundColor" name="SystemGray07"/>
@@ -298,11 +301,14 @@
                             <constraint firstItem="s03-Ws-hGk" firstAttribute="trailing" secondItem="U9k-0w-uR1" secondAttribute="trailing" constant="32" id="4eJ-rJ-UW7"/>
                             <constraint firstItem="c4m-V6-bpf" firstAttribute="top" secondItem="U9k-0w-uR1" secondAttribute="bottom" constant="25" id="9vr-lK-trt"/>
                             <constraint firstItem="s03-Ws-hGk" firstAttribute="trailing" secondItem="Qe0-Es-McT" secondAttribute="trailing" constant="30" id="E31-MT-9KD"/>
+                            <constraint firstItem="s03-Ws-hGk" firstAttribute="trailing" secondItem="joi-ol-FWb" secondAttribute="trailing" constant="70" id="KMH-Gi-rkI"/>
+                            <constraint firstItem="s03-Ws-hGk" firstAttribute="trailing" secondItem="yM1-Su-kRM" secondAttribute="trailing" constant="167" id="LPm-nM-xcJ"/>
                             <constraint firstItem="U9k-0w-uR1" firstAttribute="leading" secondItem="s03-Ws-hGk" secondAttribute="leading" constant="32" id="MUl-Mn-Lyg"/>
                             <constraint firstItem="yM1-Su-kRM" firstAttribute="leading" secondItem="s03-Ws-hGk" secondAttribute="leading" constant="167" id="OYC-gq-pKR"/>
                             <constraint firstItem="s03-Ws-hGk" firstAttribute="bottom" secondItem="Qe0-Es-McT" secondAttribute="bottom" constant="40" id="omB-3O-Sid"/>
+                            <constraint firstItem="yM1-Su-kRM" firstAttribute="top" secondItem="s03-Ws-hGk" secondAttribute="top" constant="60" id="tIG-H9-rOI"/>
                             <constraint firstItem="joi-ol-FWb" firstAttribute="leading" secondItem="s03-Ws-hGk" secondAttribute="leading" constant="70" id="tpE-LP-LBk"/>
-                            <constraint firstItem="U9k-0w-uR1" firstAttribute="top" secondItem="wwZ-5z-6zH" secondAttribute="bottom" constant="25" id="vBg-l5-Hi6"/>
+                            <constraint firstItem="joi-ol-FWb" firstAttribute="top" secondItem="yM1-Su-kRM" secondAttribute="bottom" constant="70" id="w6o-8T-9L2"/>
                             <constraint firstItem="Qe0-Es-McT" firstAttribute="leading" secondItem="s03-Ws-hGk" secondAttribute="leading" constant="30" id="yi6-vS-1Cd"/>
                         </constraints>
                     </view>
@@ -315,7 +321,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UUa-B3-s1A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1585.4961832061067" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1772" y="4"/>
         </scene>
     </scenes>
     <resources>
