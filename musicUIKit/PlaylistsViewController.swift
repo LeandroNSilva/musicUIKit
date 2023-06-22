@@ -11,6 +11,9 @@ class PlaylistsViewController: UIViewController, UITableViewDataSource, UITableV
 
     @IBOutlet weak var tableView: UITableView!
     
+    var seguePlaylistOn: String = "goToPlaylistOn"
+    
+    var musicService: MusicService?
     var musicConlletcion: [MusicCollection]?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,5 +34,21 @@ class PlaylistsViewController: UIViewController, UITableViewDataSource, UITableV
         cell.textAlbum.text = music?.mainPerson
         cell.imageAlbum.image = UIImage(named: music?.id ?? " ")
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let colletion = musicConlletcion?[indexPath.row]
+        performSegue(withIdentifier: seguePlaylistOn, sender: colletion)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == seguePlaylistOn {
+            let playlistOnViewController = segue.destination as! PlaylistOnViewController
+            
+            guard let collection = sender as? MusicCollection else { return }
+            
+            playlistOnViewController.collection = collection
+            playlistOnViewController.musicService = musicService
+        }
     }
 }
