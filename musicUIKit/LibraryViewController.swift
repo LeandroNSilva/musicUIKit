@@ -9,7 +9,6 @@ import UIKit
 
 class LibraryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
-    @IBOutlet weak var libraryIcon: UITabBarItem!
     @IBOutlet weak var tableView: UITableView!
     
     let songsSegue: String = "goToSongs"

@@ -20,6 +20,10 @@ struct Music: Hashable, Decodable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
+    
+    func isFavorite() -> Bool {
+        return MusicService.sharedMusicService.favoriteMusics.contains(self) // map( { $0.id.contains(id) } )
+    }
 }
 
 // MARK: - MusicCollectionType
@@ -103,6 +107,7 @@ final class MusicService {
     //MARK: Variables Setup
     private let allMusics: [Music]
     private var collections: Set<MusicCollection>
+    static let sharedMusicService: MusicService = MusicService()
     
     /// The queue with the music being played and the next musics.
     private(set) var queue: Queue
@@ -126,14 +131,22 @@ final class MusicService {
     ///
     /// Loads data from the json files. Method may `throws` due to I/O errors.
     ///
-    init() throws {
-        // may the superior entity (if such exists) forgive me for such terrible practice :'//
-        let mockDataUrl = Bundle.main.url(forResource: "data", withExtension: "json")!
-        let data = try Data(contentsOf: mockDataUrl)
+    init() {
         
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .iso8601
-        self.collections = try decoder.decode(Set<MusicCollection>.self, from: data)
+        do {
+            let mockDataUrl = Bundle.main.url(forResource: "data", withExtension: "json")!
+            let data = try Data(contentsOf: mockDataUrl)
+            
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .iso8601
+            self.collections = try decoder.decode(Set<MusicCollection>.self, from: data)
+        } catch {
+            collections = []
+            print("Error on \(#file) \(error.localizedDescription)")
+        }
+        
+        // may the superior entity (if such exists) forgive me for such terrible practice :'//
+ 
         self.allMusics = collections.flatMap(\.musics)
         
         self.queue = Queue(nowPlaying: nil, collection: nil, nextInCollection: [], nextSuggested: [])
