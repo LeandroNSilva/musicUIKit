@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ImH-RW-fqE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ImH-RW-fqE">
     <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -62,8 +63,7 @@
                     <navigationItem key="navigationItem" id="M5S-Ia-jaI"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="libraryIcon" destination="Mmf-Sl-6HN" id="5q3-QN-IvN"/>
-                        <outlet property="tableView" destination="JA5-vC-7g4" id="wcY-0t-Ws0"/>
+                        <outlet property="tableView" destination="JA5-vC-7g4" id="Prq-hW-aVW"/>
                         <segue destination="Zyt-NR-pUn" kind="show" identifier="goToSongs" id="J4m-8Z-6R0"/>
                         <segue destination="JBl-sm-2Ve" kind="show" identifier="goToPlaylistAndArtists" id="iz4-dc-2Sr"/>
                     </connections>
@@ -351,7 +351,7 @@
         <image name="musicRowCell" width="128" height="128"/>
         <image name="play.fill" catalog="system" width="117" height="128"/>
         <namedColor name="SystemPink">
-            <color red="0.92156862745098034" green="0.26666666666666666" blue="0.35294117647058826" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.1803921568627451" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
