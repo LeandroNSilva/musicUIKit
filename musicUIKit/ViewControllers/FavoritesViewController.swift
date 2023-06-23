@@ -101,10 +101,3 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     
 }
 
-//extension FavoritesViewController: favTableViewCellDelegate {
-//    func didTapFavoriteButton(music: Music) {
-//        print("updated")
-//        musicService.toggleFavorite(music: music, isFavorite: false)
-//        self.reloadData()
-//    }
-

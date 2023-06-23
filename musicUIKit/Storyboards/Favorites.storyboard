@@ -176,7 +176,7 @@
         <!--Playing View Controller-->
         <scene sceneID="l8b-zy-v7a">
             <objects>
-                <viewController id="xH3-LB-eTM" customClass="PlayingViewController" customModule="musicUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="playingMusic" id="xH3-LB-eTM" customClass="PlayingViewController" customModule="musicUIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dez-8Q-fZV">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

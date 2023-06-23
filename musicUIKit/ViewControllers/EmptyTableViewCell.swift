@@ -1,9 +1,3 @@
-//
-//  EmptyTableViewCell.swift
-//  musicUIKit
-//
-//  Created by Natalia Dal Pizzol on 22/06/23.
-//
 
 import UIKit
 
